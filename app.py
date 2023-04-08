@@ -2,15 +2,27 @@ import streamlit as st
 from transformers import pipeline
 # from transformers import Autotokenizer
 
-from PIL import Image
+# from PIL import Image
 
 
 pipeline = pipeline(task="sentiment-analysis")
 results = pipeline("I love using this library to implement this function!")
 
 # title
-st.title("Toxic or Not. A social media language analyzer.")
+st.title("Toxic or Not.")
+st.caption("An implementation of a language analyzer.")
+st.divider()
+
+
+# test
+st.write("Results: 'I love using this library to implement this function!'")
 st.write(results)
+
+
+
+
+
+
 
 
 # file_name = st.file_uploader("Upload a hot dog candidate image")
