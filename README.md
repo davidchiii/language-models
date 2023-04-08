@@ -1,3 +1,14 @@
+---
+title: Toxic Tweets
+emoji: 🐢
+colorFrom: gray
+colorTo: blue
+sdk: streamlit
+sdk_version: 1.17.0
+app_file: app.py
+pinned: false
+---
+
 # Toxic Media - language-models
 A introduction to natural language processing and sentimental analysis through the scope of analyzing negative online behaviors.
 
