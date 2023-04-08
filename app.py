@@ -11,15 +11,15 @@ results = pipeline("I love using this library to implement this function!")
 # title
 st.title("Toxic or Not.")
 st.caption("An implementation of a language analyzer.")
-st.divider()
+# st.divider()
 
 
 # test
 st.write("Results: 'I love using this library to implement this function!'")
 st.write(results)
 
-
-
+results = st.text_input('Enter a phrase:', 'I hate anime.')
+st.write("analyis", pipeline(results))
 
 
 
