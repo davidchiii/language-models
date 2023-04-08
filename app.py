@@ -1,8 +1,9 @@
 import streamlit as st
 from transformers import pipeline
 # from transformers import Autotokenizer
+import json
 
-# from PIL import Image
+from PIL import Image
 
 
 pipeline = pipeline(task="sentiment-analysis")
@@ -11,13 +12,25 @@ results = pipeline("I love using this library to implement this function!")
 # title
 st.title("Toxic or Not.")
 st.caption("An implementation of a language analyzer.")
-# st.divider()
+# st.divider() doesnt work????
+
+# image
+image = Image.open('media/L_two.png')
+st.image(image)
+
 
 
 # test
 st.write("Results: 'I love using this library to implement this function!'")
+results = json.load(results)
+for i in results:
+    st.write(i['label'])
+    st.write("Score:",i['score'])
 st.write(results)
 
+
+
+# sentiment analysis
 results = st.text_input('Enter a phrase:', 'I hate anime.')
 st.write("analyis", pipeline(results))
 
