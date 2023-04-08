@@ -1,6 +1,6 @@
 import streamlit as st
 from transformers import pipeline
-from transformers import Autotokenizer
+# from transformers import Autotokenizer
 
 from PIL import Image
 
