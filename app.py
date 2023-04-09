@@ -19,11 +19,10 @@ st.image(image)
 # import models
 tokenizer = AutoTokenizer.from_pretrained("vinai/bertweet-base", use_fast=False)
 bertweet = AutoModel.from_pretrained("vinai/bertweet-base")
-pl = pipeline("sentiment-analysis",model=bertweet, tokenizer=tokenizer, framework='pt')
+pl = pipeline("sentiment-analysis",model="vinai/bertweet-base", tokenizer=tokenizer, framework='pt')
 
 # test
 input = 'I love using this library to implement this function!'
-
 input_ids = torch.tensor([tokenizer.encode(input)])
 with torch.no_grad():
     results = bertweet(input_ids)
