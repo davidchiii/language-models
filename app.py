@@ -28,7 +28,7 @@ model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-unca
 pl = pipeline("sentiment-analysis",model="distilbert-base-uncased-finetuned-sst-2-english", tokenizer=tokenizer, framework='pt')
 
 # sentiment analysis
-input = st.text_input('Enter a phrase and press enter to analyze it:', 'I hate anime.')
+input = st.text_input('Enter a phrase and press enter to analyze it:', 'grrrr jappan 🇯🇵 is best country in teh world (sekai) !!!!🤬😡!!!👹🤬!!!!! west bAd grrrgghhhg japenis culture⛩🎎🎏 better than amrican🗽🍔👎!!! (>~<) vendor machine eveywhere 🗼and sakura trees are so 🌸 a e s t h e t i c 🌸 UwU if u hate it then your NOT a man of culture so shinē!!! ~hmph baka -_- 🏮')
 result = pl(input)
 # st.json(result)
 
