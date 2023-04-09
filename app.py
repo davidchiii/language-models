@@ -8,7 +8,7 @@ from PIL import Image
 
 # title
 st.title("Toxic or Not.")
-st.caption("An implementation of a language analyzer.")
+st.caption("An implementation of a tweet language analyzer.")
 # st.divider() doesnt work????
 # image
 image = Image.open('media/L_two.png')
@@ -23,23 +23,16 @@ pl = pipeline("sentiment-analysis",model="vinai/bertweet-base", tokenizer=tokeni
 
 # test
 input = 'I love using this library to implement this function!'
-input_ids = torch.tensor([tokenizer.encode(input)])
-with torch.no_grad():
-    results = bertweet(input_ids)
 st.write("Results: 'I love using this library to implement this function!'")
-st.write(pl(input))
+st.json(input)
 
 
 
 # sentiment analysis
 input = st.text_input('Enter a phrase:', 'I hate anime.')
-input_ids = torch.tensor([tokenizer.encode(input)])
-with torch.no_grad():
-    x = bertweet(input_ids)
-
-
-st.write("analyis", pl(input))
-
+#input_ids = torch.tensor([tokenizer.encode(input)])
+result = pl(input)
+st.json(result)
 
 
 # file_name = st.file_uploader("Upload a hot dog candidate image")
