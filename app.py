@@ -14,11 +14,11 @@ pl = pipeline("sentiment-analysis",model="distilbert-base-uncased-finetuned-sst-
 # title
 st.markdown("# :red[Toxic] or Not.")
 st.caption("An implementation of a tweet language analyzer.")
-st.divider()
+# st.divider()
 # image
 image = Image.open('media/L_two.png')
 st.image(image)
-st.divider()
+# st.divider()
 
 
 
