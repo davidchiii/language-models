@@ -1,40 +1,45 @@
 import streamlit as st
-from transformers import pipeline, AutoModel, AutoTokenizer
+from transformers import pipeline, AutoModelForSequenceClassification, AutoTokenizer, DistilBertForSequenceClassification
 # from transformers import Autotokenizer
 # import json
 import torch
-
+import emoji
 from PIL import Image
-
-# title
-st.title("Toxic or Not.")
-st.caption("An implementation of a tweet language analyzer.")
-# st.divider() doesnt work????
-# image
-image = Image.open('media/L_two.png')
-st.image(image)
-
 
 
 # import models
-tokenizer = AutoTokenizer.from_pretrained("vinai/bertweet-base", use_fast=False)
-bertweet = AutoModel.from_pretrained("vinai/bertweet-base")
-pl = pipeline("sentiment-analysis",model="vinai/bertweet-base", tokenizer=tokenizer, framework='pt')
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english", use_fast=False)
+model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
+pl = pipeline("sentiment-analysis",model="distilbert-base-uncased-finetuned-sst-2-english", tokenizer=tokenizer, framework='pt')
+# title
+st.markdown("# :red[Toxic] or Not.")
+st.caption("An implementation of a tweet language analyzer.")
+st.divider()
+# image
+image = Image.open('media/L_two.png')
+st.image(image)
+st.divider()
 
-# test
-input = 'I love using this library to implement this function!'
-st.write("Results: 'I love using this library to implement this function!'")
-st.json(pl(input))
 
 
+# create pipeline
+tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english", use_fast=False)
+model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
+pl = pipeline("sentiment-analysis",model="distilbert-base-uncased-finetuned-sst-2-english", tokenizer=tokenizer, framework='pt')
 
 # sentiment analysis
-input = st.text_input('Enter a phrase:', 'I hate anime.')
-#input_ids = torch.tensor([tokenizer.encode(input)])
+input = st.text_input('Enter a phrase and press enter to analyze it:', 'I hate anime.')
 result = pl(input)
-st.json(result)
+# st.json(result)
 
-
+if result[0]["label"] == "NEGATIVE":
+    st.markdown(emoji.emojize("Text entry is negative :thumbsdown:"))
+    st.write(result[0]["score"])
+elif result[0]["label"] == "POSITIVE":
+    st.markdown(emoji.emojize("Text entry is positive :thumbsup:"))
+    st.write(result[0]["score"])
+else:
+    st.markdown(emoji.emojize("something went wrong :x:"))
 # file_name = st.file_uploader("Upload a hot dog candidate image")
 
 # if file_name is not None:
