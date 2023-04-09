@@ -6,12 +6,6 @@ import torch
 
 from PIL import Image
 
-# import models
-tokenizer = AutoTokenizer.from_pretrained("vinai/bertweet-base", use_fast=False)
-bertweet = AutoModel.from_pretrained("vinai/bertweet-base")
-
-
-
 # title
 st.title("Toxic or Not.")
 st.caption("An implementation of a language analyzer.")
@@ -22,6 +16,11 @@ st.image(image)
 
 
 
+# import models
+tokenizer = AutoTokenizer.from_pretrained("vinai/bertweet-base", use_fast=False)
+bertweet = AutoModel.from_pretrained("vinai/bertweet-base")
+pl = pipeline("sentiment-analysis",model=bertweet, tokenizer=tokenizer, framework='pt')
+
 # test
 input = 'I love using this library to implement this function!'
 
@@ -29,10 +28,7 @@ input_ids = torch.tensor([tokenizer.encode(input)])
 with torch.no_grad():
     results = bertweet(input_ids)
 st.write("Results: 'I love using this library to implement this function!'")
-# for i in results:
-#     st.write(i['label'])
-#     st.write("Score:",i['score'])
-st.write(results)
+st.write(pl(input))
 
 
 
@@ -40,8 +36,10 @@ st.write(results)
 input = st.text_input('Enter a phrase:', 'I hate anime.')
 input_ids = torch.tensor([tokenizer.encode(input)])
 with torch.no_grad():
-    results = bertweet(input_ids)
-st.write("analyis", results)
+    x = bertweet(input_ids)
+
+
+st.write("analyis", pl(input))
 
 
 
