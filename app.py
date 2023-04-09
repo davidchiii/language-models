@@ -24,7 +24,7 @@ pl = pipeline("sentiment-analysis",model="vinai/bertweet-base", tokenizer=tokeni
 # test
 input = 'I love using this library to implement this function!'
 st.write("Results: 'I love using this library to implement this function!'")
-st.json(input)
+st.json(pl(input))
 
 
 
