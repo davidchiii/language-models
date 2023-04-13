@@ -4,6 +4,8 @@ from transformers import pipeline, AutoModelForSequenceClassification, AutoToken
 # import json
 import torch
 import emoji
+
+import time
 from PIL import Image
 
 
@@ -35,9 +37,11 @@ result = pl(input)
 if result[0]["label"] == "NEGATIVE":
     st.markdown(emoji.emojize("Text entry is negative :thumbsdown:"))
     st.write(result[0]["score"])
+    
 elif result[0]["label"] == "POSITIVE":
     st.markdown(emoji.emojize("Text entry is positive :thumbsup:"))
     st.write(result[0]["score"])
+    st.success("positive score!")
 else:
     st.markdown(emoji.emojize("something went wrong :x:"))
 # file_name = st.file_uploader("Upload a hot dog candidate image")
