@@ -9,6 +9,8 @@ app_file: app.py
 pinned: false
 ---
 
+### [link to hugging face model](https://huggingface.co/spaces/davidchiii/toxic-tweets)
+
 # Toxic Media - language-models
 A introduction to natural language processing and sentimental analysis through the scope of analyzing negative online behaviors.
 
