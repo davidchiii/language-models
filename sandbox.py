@@ -1,3 +1,6 @@
+# |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|
+# |          tutorial           |
+# |_____________________________|
 import streamlit as st
 from transformers import pipeline
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, DistilBertForSequenceClassification
@@ -6,6 +9,8 @@ import torch.nn.functional as F
 import emoji
 import time
 from PIL import Image
+import pandas as pd
+import numpy as np
 
 
 model_name = 'distilbert-base-uncased-finetuned-sst-2-english'

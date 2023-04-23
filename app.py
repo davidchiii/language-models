@@ -10,6 +10,8 @@ import emoji
 import time
 from PIL import Image
 from pathlib import Path
+import pandas as pd
+import numpy as np
 
 
 # |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|
