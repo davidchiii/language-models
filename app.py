@@ -66,12 +66,13 @@ if option == 'distilbert-base-uncased-finetuned-sst-2-english':
     if result[0]["label"] == "NEGATIVE":
         st.markdown(emoji.emojize("Text entry is negative :thumbsdown:"))
         st.write(result[0]["score"])
-        st.failure("negative score :<")
+        st.warning("negative score :<", icon="⚠️")
 
     elif result[0]["label"] == "POSITIVE":
         st.markdown(emoji.emojize("Text entry is positive :thumbsup:"))
         st.write(result[0]["score"])
         st.success("positive score!")
+        st.balloons()
     else:
         st.markdown(emoji.emojize("something went wrong :x:"))
 elif option == 'fine-trained-distilbert':
@@ -101,6 +102,8 @@ elif option == 'fine-trained-distilbert':
     for key in dict.keys():
         if dict[largest]['score'] < dict[key]['score']:
             largest = key
+
+    st.write(dict)
 
     col1, col2, col3 = st.columns(3)
     with col1:
