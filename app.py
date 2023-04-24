@@ -103,8 +103,6 @@ elif option == 'fine-trained-distilbert':
         if dict[largest]['score'] < dict[key]['score']:
             largest = key
 
-    st.write(dict)
-
     col1, col2, col3 = st.columns(3)
     with col1:
         st.subheader("Text:")
