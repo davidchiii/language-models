@@ -158,4 +158,4 @@ elif option == 'fine-trained-distilbert':
         st.write(largest)
     with col3:
         st.subheader("Value:")
-        st.table(dict)
+        st.write(dict)
