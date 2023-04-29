@@ -72,3 +72,10 @@ The model was trained using Google Colab and exported to HuggingFace Models. The
 The output of the model is a set of values corresponding to how much of each category the input tweet is.
 
 [Google site](https://sites.google.com/nyu.edu/toxic-tweets/home)
+
+### Loss
+
+I calculated loss using binary-cross entropy. For every batch, we can call the model to measure its loss.
+It hovers around 0.03 to 0.06, dropping sometimes to 0.01.
+
+![loss](media/loss.png)
