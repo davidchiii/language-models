@@ -50,7 +50,25 @@ sudo apt install docker-ce docker-ce-cli containerd.io
 
 Located [here](https://code.visualstudio.com/download).
 
-Install DevContainers Extension
+Install DevContainers Extension.
+Through this extension, you can now open any directory in a development container through the bottom left icon.
+
+### Accessing the container
+
+In Docker Desktop, you can find the container ID under the `Containers` tab.
+
+In WSL2, execute
+```
+docker ps
+```
+to show all running containers on the system.
+
+Copy the ID and run the command
+```
+docker exec -it [container-id] /bin/sh
+```
+to start a shell in container.
+![image](https://user-images.githubusercontent.com/31455973/227805121-b89492fd-26d6-4ace-89b1-080156494716.png)
 
 ---
 
