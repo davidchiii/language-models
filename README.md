@@ -97,3 +97,5 @@ I calculated loss using binary-cross entropy. For every batch, we can call the m
 It hovers around 0.03 to 0.06, dropping sometimes to 0.01.
 
 ![loss](media/loss.png)
+
+[youtube link](https://youtu.be/K7PJyOYFGkg)
