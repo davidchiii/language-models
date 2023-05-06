@@ -112,7 +112,8 @@ elif option == 'fine-trained-distilbert':
 
     # st.write(type(output[0]))
     # output the labels
-
+    if not output:
+        pass
     # write values to a dictionary to sort them
     dict = {}
     label_cols = ['toxic', 'severe_toxic', 'obscene',
